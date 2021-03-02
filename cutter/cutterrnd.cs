@@ -113,10 +113,7 @@ namespace Cutterrnd
                     maxnegyzet += akthull * akthull;
                     akthull = szalhossz - arr[i];
                 }
-                else
-                {
-                    akthull -= arr[i];
-                }
+                else akthull -= arr[i];
             }
             maxnegyzet += akthull * akthull;
         }
