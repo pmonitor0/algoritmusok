@@ -53,7 +53,7 @@ namespace Cutterrnd
         {
 
             Eredmeny = ReadFromString(text, ref Szalhossz);
-            rnd = new Random(30000);
+            rnd = new Random(10000);
         }
 
         static int[] ReadFromString(string text, ref int szalhossz)
