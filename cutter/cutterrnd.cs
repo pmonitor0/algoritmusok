@@ -231,10 +231,7 @@ namespace Cutterrnd
         void MaxDarabOptimalizalo(int[] arr, int szalhossz, int[] maxindex)
         {
             int ig = arr.Length;
-            for (int i = 0; i < ig; ++i)
-            {
-                maxindex[i] = Math.Min(maxindex[i], (szalhossz / arr[i]));
-            }
+            for (int i = 0; i < ig; ++i) maxindex[i] = Math.Min(maxindex[i], (szalhossz / arr[i]));
         }
 
         void MinhulladekKombinaciok(ref int[] arr, int szalhossz, int[] maxindex)
