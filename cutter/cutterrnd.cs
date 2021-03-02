@@ -464,10 +464,7 @@ namespace Cutterrnd
                         hulladekok[szaldarab] = szalhossz - arr[i];
                         hatarok[szaldarab] = i;
                     }
-                    else
-                    {
-                        hulladekok[szaldarab] -= arr[i];
-                    }
+                    else hulladekok[szaldarab] -= arr[i];
                 }
             }
             negyzetosszeg += (hulladekok[szaldarab] * hulladekok[szaldarab]);
