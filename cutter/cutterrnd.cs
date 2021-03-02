@@ -671,7 +671,7 @@ namespace Cutterrnd
             s.AppendLine("Négyzetösszeg: " + hullnegyzet.ToString().PadLeft(10, ' '));
             int min = Osszeg / Szalhossz;
             if ((Osszeg % Szalhossz) > 0) ++min;
-            s.Append("Elméleti minimum szál: " + min.ToString().PadLeft(4, ' ') + Environment.NewLine);
+            s.AppendLine("Elméleti minimum szál: " + min.ToString().PadLeft(4, ' '));
             return s.ToString();
         }
     }
