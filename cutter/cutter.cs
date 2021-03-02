@@ -328,7 +328,7 @@ namespace Cutter
                 for (i = 0; i < sormaxi; ++i)
                 {
                     if (erdm[i] == null) break;
-                    s.Append(db[i].ToString().PadLeft(3, ' ') + " db " + erdm[i] + Environment.NewLine);
+                    s.AppendLine(db[i].ToString().PadLeft(3, ' ') + " db " + erdm[i]);
                 }
             }
 
