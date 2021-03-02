@@ -50,28 +50,24 @@ namespace Cutter
             int n = forras.Length;
             Eredmeny = new int[n];
             Array.Copy(forras, Eredmeny, n);
-            SzaldarabEsMaxnegyzetFeltoltese(forras, n, szalhossz, ref Szaldarab, ref Maxnegyzet);
+            SzaldarabEsNegyzetOsszegFeltoltese(forras, n, szalhossz, ref Szaldarab, ref Maxnegyzet);
             Manipulal(forras);
-            SzaldarabEsMaxnegyzetFeltoltese(Eredmeny, Eredmeny.Length, szalhossz, ref Szaldarab, ref Maxnegyzet);
+            SzaldarabEsNegyzetOsszegFeltoltese(Eredmeny, Eredmeny.Length, szalhossz, ref Szaldarab, ref Maxnegyzet);
             int darab = Eredmeny.Length;
             Osszeg = 0;
             for (int i = 0; i < darab; ++i) Osszeg += Eredmeny[i];
-            KettodArr = ConvertTomb1dToTomb2d(Eredmeny, szalhossz);
-            RendezHulladekCsokkeno2D(KettodArr, 1 + Szaldarab);
-            SzalRendez2D(KettodArr, 1 + Szaldarab);
-
         }
 
-        void SzaldarabEsMaxnegyzetFeltoltese(int[] arr, int hossz, int szalhossz, ref int szaldarab, ref int maxnegyzet)
+        void SzaldarabEsNegyzetOsszegFeltoltese(int[] arr, int hossz, int szalhossz, ref int szaldarab, ref int negyzetosszeg)
         {
             int ig = hossz - 1, akthull = szalhossz;
-            maxnegyzet = 0;
+            negyzetosszeg = 0;
             for (int i = 0; i <= ig; ++i)
             {
                 if (arr[i] > akthull)
                 {
                     ++szaldarab;
-                    maxnegyzet += akthull * akthull;
+                    negyzetosszeg += akthull * akthull;
                     akthull = szalhossz - arr[i];
                 }
                 else
@@ -79,7 +75,7 @@ namespace Cutter
                     akthull -= arr[i];
                 }
             }
-            maxnegyzet += akthull * akthull;
+            negyzetosszeg += akthull * akthull;
         }
 
         void Manipulal(int[] tomb)
@@ -93,7 +89,7 @@ namespace Cutter
             while (true)
             {
                 int szdb = 0, maxn = 0;
-                SzaldarabEsMaxnegyzetFeltoltese(tomb, size, szalhossz, ref szdb, ref maxn);
+                SzaldarabEsNegyzetOsszegFeltoltese(tomb, size, szalhossz, ref szdb, ref maxn);
                 if (szdb < Szaldarab)
                 {
                     CopyMemory(Eredmeny, tomb, mashossz);
@@ -267,6 +263,9 @@ namespace Cutter
 
         public override string ToString()
         {
+            KettodArr = ConvertTomb1dToTomb2d(Eredmeny, szalhossz);
+            RendezHulladekCsokkeno2D(KettodArr, 1 + Szaldarab);
+            SzalRendez2D(KettodArr, 1 + Szaldarab);
             StringBuilder s = new StringBuilder();
             int sormax = 1 + Szaldarab;
             int osszhull = 0;
@@ -333,12 +332,12 @@ namespace Cutter
                 }
             }
 
-            s.Append(Environment.NewLine + "Összesen " + Eredmeny.Length.ToString().PadLeft(4, ' ') + " darab " + (1 + Szaldarab).ToString().PadLeft(4, ' ') + " szálban." + Environment.NewLine);
-            s.Append("Hulladék: " + osszhull.ToString().PadLeft(4, ' ') + " Összeg: " + Osszeg.ToString().PadLeft(4, ' ') + Environment.NewLine);
-            s.Append("Négyzetösszeg: " + hullnegyzet.ToString().PadLeft(10, ' ') + Environment.NewLine);
+            s.AppendLine(Environment.NewLine + "Összesen " + Eredmeny.Length.ToString().PadLeft(4, ' ') + " darab " + (1 + Szaldarab).ToString().PadLeft(4, ' ') + " szálban.");
+            s.AppendLine("Hulladék: " + osszhull.ToString().PadLeft(4, ' ') + " Összeg: " + Osszeg.ToString().PadLeft(4, ' '));
+            s.AppendLine("Négyzetösszeg: " + hullnegyzet.ToString().PadLeft(10, ' '));
             int min = Osszeg / szalhossz;
             if ((Osszeg % szalhossz) > 0) ++min;
-            s.Append("Elméleti minimum szál: " + min.ToString().PadLeft(4, ' ') + Environment.NewLine);
+            s.AppendLine("Elméleti minimum szál: " + min.ToString().PadLeft(4, ' '));
             return s.ToString();
         }
     }
