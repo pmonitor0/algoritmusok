@@ -551,15 +551,9 @@ namespace Cutterrnd
                 mintempindex = i;
                 for (int j = 1 + i; j < sordarab; ++j)
                 {
-                    if (tomb2D[j, 1] > tomb2D[mintempindex, 1])
-                    {
-                        mintempindex = j;
-                    }
+                    if (tomb2D[j, 1] > tomb2D[mintempindex, 1]) mintempindex = j;
                 }
-                if (mintempindex > i)
-                {
-                    SzalCsere2D(tomb2D, i, mintempindex);
-                }
+                if (mintempindex > i) SzalCsere2D(tomb2D, i, mintempindex);
             }
         }
 
