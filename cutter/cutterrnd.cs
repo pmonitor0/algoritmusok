@@ -95,13 +95,10 @@ namespace Cutterrnd
             for (int i = 0; i <= Szaldarab; ++i) SzalDarabRendezes(Eredmeny, Hatarok, i, false);
 
             Eredmeny = Optimalizalo11(probakszama);
-            SzaldarabEsMaxnegyzetFeltoltese(Eredmeny, Eredmeny.Length, Szalhossz, out Szaldarab, out Maxnegyzet);
-            KettodArr = ConvertTomb1dToTomb2d(Eredmeny, Szalhossz);
-            RendezHulladekCsokkeno2D(KettodArr, 1 + Szaldarab);
-            SzalRendez2D(KettodArr, 1 + Szaldarab);
+            SzaldarabEsNegyzetOsszegFeltoltese(Eredmeny, Eredmeny.Length, Szalhossz, out Szaldarab, out Maxnegyzet);
         }
 
-        void SzaldarabEsMaxnegyzetFeltoltese(int[] arr, int hossz, int szalhossz, out int szaldarab, out int maxnegyzet)
+        void SzaldarabEsNegyzetOsszegFeltoltese(int[] arr, int hossz, int szalhossz, out int szaldarab, out int maxnegyzet)
         {
             int ig = hossz - 1, akthull = szalhossz;
             szaldarab = 0; maxnegyzet = 0;
@@ -601,6 +598,9 @@ namespace Cutterrnd
 
         public override string ToString()
         {
+            KettodArr = ConvertTomb1dToTomb2d(Eredmeny, Szalhossz);
+            RendezHulladekCsokkeno2D(KettodArr, 1 + Szaldarab);
+            SzalRendez2D(KettodArr, 1 + Szaldarab);
             StringBuilder s = new StringBuilder();
             int sormax = 1 + Szaldarab;
             int osszhull = 0;
@@ -637,6 +637,7 @@ namespace Cutterrnd
                     ++strtind;
                 }
                 Array.Sort(strt); Array.Reverse(strt);
+
                 sormaxi = strt.Length;
                 int akt = 0;
                 string[] erdm = new string[sormaxi];
@@ -666,12 +667,12 @@ namespace Cutterrnd
                 }
             }
 
-            s.AppendLine(Environment.NewLine + "Összesen " + Eredmeny.Length.ToString().PadLeft(4, ' ') + " darab " + (1 + Szaldarab).ToString().PadLeft(4, ' ') + " szálban.");
-            s.AppendLine("Hulladék: " + osszhull.ToString().PadLeft(4, ' ') + " Összeg: " + Osszeg.ToString().PadLeft(4, ' '));
-            s.AppendLine("Négyzetösszeg: " + hullnegyzet.ToString().PadLeft(10, ' '));
+            s.Append(Environment.NewLine + "Összesen " + Eredmeny.Length.ToString().PadLeft(4, ' ') + " darab " + (1 + Szaldarab).ToString().PadLeft(4, ' ') + " szálban." + Environment.NewLine);
+            s.Append("Hulladék: " + osszhull.ToString().PadLeft(4, ' ') + " Összeg: " + Osszeg.ToString().PadLeft(4, ' ') + Environment.NewLine);
+            s.Append("Négyzetösszeg: " + hullnegyzet.ToString().PadLeft(10, ' ') + Environment.NewLine);
             int min = Osszeg / Szalhossz;
             if ((Osszeg % Szalhossz) > 0) ++min;
-            s.AppendLine("Elméleti minimum szál: " + min.ToString().PadLeft(4, ' '));
+            s.Append("Elméleti minimum szál: " + min.ToString().PadLeft(4, ' ') + Environment.NewLine);
             return s.ToString();
         }
     }
