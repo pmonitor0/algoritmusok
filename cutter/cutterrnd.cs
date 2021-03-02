@@ -637,7 +637,6 @@ namespace Cutterrnd
                     ++strtind;
                 }
                 Array.Sort(strt); Array.Reverse(strt);
-
                 sormaxi = strt.Length;
                 int akt = 0;
                 string[] erdm = new string[sormaxi];
