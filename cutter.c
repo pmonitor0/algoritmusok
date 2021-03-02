@@ -1,3 +1,5 @@
+//Egyszeru 1D cutting(1D vagas optimalizalo) program.
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
