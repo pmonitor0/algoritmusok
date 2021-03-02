@@ -668,7 +668,7 @@ namespace Cutterrnd
 
             s.AppendLine(Environment.NewLine + "Összesen " + Eredmeny.Length.ToString().PadLeft(4, ' ') + " darab " + (1 + Szaldarab).ToString().PadLeft(4, ' ') + " szálban.");
             s.AppendLine("Hulladék: " + osszhull.ToString().PadLeft(4, ' ') + " Összeg: " + Osszeg.ToString().PadLeft(4, ' '));
-            s.Append("Négyzetösszeg: " + hullnegyzet.ToString().PadLeft(10, ' ') + Environment.NewLine);
+            s.AppendLine("Négyzetösszeg: " + hullnegyzet.ToString().PadLeft(10, ' '));
             int min = Osszeg / Szalhossz;
             if ((Osszeg % Szalhossz) > 0) ++min;
             s.Append("Elméleti minimum szál: " + min.ToString().PadLeft(4, ' ') + Environment.NewLine);
