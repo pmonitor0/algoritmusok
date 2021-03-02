@@ -511,10 +511,7 @@ namespace Cutterrnd
             int tombindex = 0;
             for (int i = 0; i < osszdarab; ++i)
             {
-                for (int j = 0; j < tomb2d[i, 0]; ++j, ++tombindex)
-                {
-                    tomb[tombindex] = tomb2d[i, 2 + j];
-                }
+                for (int j = 0; j < tomb2d[i, 0]; ++j, ++tombindex) tomb[tombindex] = tomb2d[i, 2 + j];
             }
             return tomb;
         }
