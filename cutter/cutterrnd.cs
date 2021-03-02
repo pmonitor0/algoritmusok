@@ -449,10 +449,7 @@ namespace Cutterrnd
                                 --k;
                             }
                             arr[k] = temp;
-                            for (k = j + 1; k <= szaldarab; ++k)
-                            {
-                                ++hatarok[k];
-                            }
+                            for (k = j + 1; k <= szaldarab; ++k) ++hatarok[k];
                             break;
                         }
                     }
