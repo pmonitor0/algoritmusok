@@ -1,5 +1,5 @@
 /*Az "cutter.cs"-nél hatékonyabb, de azért nem a legjobb. A legjobbat megtartom magamnak  :).
-a http://bferi.hu/index.php webhelyen lehet elérni.*/
+a http://bferi.hu/download.php webhelyen lehet elérni.*/
 
 using System;
 using System.Diagnostics;
