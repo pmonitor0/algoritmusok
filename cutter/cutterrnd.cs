@@ -92,10 +92,7 @@ namespace Cutterrnd
             JellemzokHosszra(Eredmeny, darab, ref Szalhossz, ref Szaldarab, Hatarok, Hulladekok, Darabszamok, ref Maxnegyzet);
 
             Eredmeny = Optimalizalo();
-            for (int i = 0; i <= Szaldarab; ++i)
-            {
-                SzalDarabRendezes(Eredmeny, Hatarok, i, false);
-            }
+            for (int i = 0; i <= Szaldarab; ++i) SzalDarabRendezes(Eredmeny, Hatarok, i, false);
 
             Eredmeny = Optimalizalo11(probakszama);
             SzaldarabEsMaxnegyzetFeltoltese(Eredmeny, Eredmeny.Length, Szalhossz, out Szaldarab, out Maxnegyzet);
