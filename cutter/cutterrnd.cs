@@ -1,4 +1,4 @@
-/*Az "cutter.cs"-nél hatékonyabb, de azért nem a legjobb. A legjobbat megtartom magamnak  :).
+/*Az "cutter.cs"-nél hatékonyabb, de azért nem a legjobb. A legjobbat megtartom magamnak :).
 a http://bferi.hu/download.php webhelyen lehet elérni.*/
 
 using System;
