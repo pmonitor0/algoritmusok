@@ -594,10 +594,7 @@ namespace Cutterrnd
         {
             StringBuilder s = new StringBuilder();
             int jmax = 2 + arr[index, 0];
-            for (int j = 2; j < jmax; ++j)
-            {
-                s.Append(arr[index, j].ToString().PadLeft(4, ' ') + " ");
-            }
+            for (int j = 2; j < jmax; ++j) s.Append(arr[index, j].ToString().PadLeft(4, ' ') + " ");
             s.Append(": " + arr[index, 1].ToString().PadLeft(4, ' '));
             return s.ToString();
         }
