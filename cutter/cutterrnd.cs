@@ -542,15 +542,15 @@ namespace Cutterrnd
 
         void RendezHulladekCsokkeno2D(int[,] tomb2D, int sordarab)
         {
-            int mintempindex;
+            int tempindex;
             for (int i = 0; i < sordarab - 1; ++i)
             {
-                mintempindex = i;
+                tempindex = i;
                 for (int j = 1 + i; j < sordarab; ++j)
                 {
-                    if (tomb2D[j, 1] > tomb2D[mintempindex, 1]) mintempindex = j;
+                    if (tomb2D[j, 1] > tomb2D[tempindex, 1]) tempindex = j;
                 }
-                if (mintempindex > i) SzalCsere2D(tomb2D, i, mintempindex);
+                if (tempindex > i) SzalCsere2D(tomb2D, i, tempindex);
             }
         }
 
