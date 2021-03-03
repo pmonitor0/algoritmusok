@@ -1,6 +1,6 @@
 /*Az "cutter.cs"-nél sokkal több darabra használható. Cserébe viszont ez nem garantáltan találja meg az optimális megoldások egyikét.
 Van olyan kódom, ami ugyancsak nem biztos, hogy megtalálja az optimális megoldást, de ennél azért jobb.
-Ezt a kódot viszont megtartom magamnak :). A http://bferi.hu/download.php webhelyen lehet elérni az egyszerű UI-val rendelkező free programomat.*/
+Ezt a kódot viszont megtartom magamnak :). A http://bferi.hu/download.php webhelyen lehet elérni az egyszerű UI-val rendelkező free programomat. */
 
 using System;
 using System.Diagnostics;
