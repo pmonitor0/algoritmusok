@@ -148,21 +148,21 @@ namespace Cutter
 
         void RendezHulladekCsokkeno2D(int[,] tomb2D, int sordarab)
         {
-            int mintempindex;
+            int tempindex;
             for (int i = 0; i < sordarab - 1; ++i)
             {
-                mintempindex = i;
+                tempindex = i;
                 for (int j = 1 + i; j < sordarab; ++j)
                 {
-                    if (tomb2D[j, 1] > tomb2D[mintempindex, 1])
+                    if (tomb2D[j, 1] > tomb2D[tempindex, 1])
                     {
-                        mintempindex = j;
+                        tempindex = j;
                     }
                 }
-                if (mintempindex > i)
+                if (tempindex > i)
                 {
                     //csere i,mintempindex
-                    SzalCsere2D(tomb2D, i, mintempindex);
+                    SzalCsere2D(tomb2D, i, tempindex);
                 }
             }
         }
