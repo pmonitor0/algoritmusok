@@ -159,11 +159,7 @@ namespace Cutter
                         tempindex = j;
                     }
                 }
-                if (tempindex > i)
-                {
-                    //csere i,mintempindex
-                    SzalCsere2D(tomb2D, i, tempindex);
-                }
+                if (tempindex > i) SzalCsere2D(tomb2D, i, tempindex);
             }
         }
 
