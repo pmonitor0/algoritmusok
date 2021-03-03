@@ -1,4 +1,9 @@
 //Egyszeru 1D cutting optimizer(1D vagas optimalizalo) program.
+/*
+Ez a program(ha emberi idő alatt lefut) garantáltan megtalálja az optimális megoldások egyikét.
+Csak az a nagy baj, hogy relatív kis darabszámokra használható. A szíve az ismétléses permutáció algoritmusa.
+*/
+
 
 #include <stdio.h>
 #include <stdlib.h>
