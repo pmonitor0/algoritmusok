@@ -1,3 +1,8 @@
+/*
+Ez a program(ha emberi idő alatt lefut) garantáltan megtalálja az optimális megoldások egyikét.
+Csak az a nagy baj, hogy relatív kis darabszámokra használható. A szíve az ismétléses permutáció algoritmusa.
+*/
+
 using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
