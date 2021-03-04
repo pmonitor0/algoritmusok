@@ -8,8 +8,8 @@ namespace Variaciok
         public static void Main(string[] args)
         {
             Console.WriteLine(DateTime.Now.ToString());
-            //int n = 90, k = 5;
-            int n = 6, k = 5;
+            int n = 90, k = 5;
+            //int n = 6, k = 5;
             int[] arr = new int[n];
             for (int i = 0; i < n; ++i) arr[i] = i + 1;
             Stopwatch sw = new Stopwatch();
