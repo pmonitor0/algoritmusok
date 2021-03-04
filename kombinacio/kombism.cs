@@ -14,7 +14,7 @@ namespace Kombinaciok
             Stopwatch sw = new Stopwatch();
             long t_1 = 0;
             sw.Start();
-            IsmKombinacio(arr, k);
+            IsmKombinacio(arr, k); //kb. 12 sec.
             t_1 = sw.ElapsedMilliseconds;
             Console.WriteLine("Eltelt idő: {0}", t_1);
         }
