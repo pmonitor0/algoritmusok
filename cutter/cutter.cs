@@ -25,7 +25,7 @@ namespace Cutter
             Cutting ct = new Cutting(str);
             Console.WriteLine(DateTime.Now);
             sw.Start();
-            ct.Manipulal();
+            ct.Manipulal(); //kb. 67 sec.
             t_1 = sw.ElapsedMilliseconds;
             Console.Write(ct.ToString());
             Console.Write("Eltelt idő: {0}", t_1);
