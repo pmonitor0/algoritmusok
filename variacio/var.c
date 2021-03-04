@@ -60,8 +60,8 @@ long timediff(struct timeb* start, struct timeb* end)
 int main()
 {
     struct timeb start, end;
-    long seconds, seconds_2;
-    int militm, militm_2;
+    long seconds;
+    int militm;
     int arr[500];
     int n = 90, k = 5;
     int i;
