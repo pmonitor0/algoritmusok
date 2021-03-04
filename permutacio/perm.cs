@@ -14,9 +14,9 @@ namespace Permutaciok
             Stopwatch sw = new Stopwatch();
             long t_1 = 0;
             sw.Start();
-            Teszt(arr);
+            Teszt(arr); //kb. 22-23 sec.
             t_1 = sw.ElapsedMilliseconds;
-            
+
             Console.WriteLine("Teszt: {0}", t_1);
         }
 
