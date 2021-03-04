@@ -211,6 +211,6 @@ int main()
         "1540, 3\n"
         "1500, 3\n"
         "1346, 3";
-    cutting(str);
+    cutting(str); //kb. 53-55 sec.
     return 0;
 }
