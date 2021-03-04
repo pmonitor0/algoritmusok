@@ -80,7 +80,7 @@ int main()
     char str[] = "abcdanananaabcdanana";
     //char str[] = "ACBC";
     ftime(&start);
-    teszt(str);
+    teszt(str); //kb. 22-23 sec.
     ftime(&end);
     seconds = timediff(&start, &end);
     militm = start.millitm;
