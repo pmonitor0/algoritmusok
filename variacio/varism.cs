@@ -15,7 +15,7 @@ namespace Variaciok
             Stopwatch sw = new Stopwatch();
             long t_1 = 0;
             sw.Start();
-            Teszt(arr, k);
+            Teszt(arr, k); //kb. 35 sec.
             t_1 = sw.ElapsedMilliseconds;
             Console.WriteLine("Eltelt idő: {0}", t_1);
         }
@@ -34,7 +34,7 @@ namespace Variaciok
             int j = k - 1;
             do
             {
-                
+
                 /*for (int i = 0; i < k; ++i) Console.Write("{0} ", arr[tomb[i]]);
                 Console.WriteLine("");*/
 
