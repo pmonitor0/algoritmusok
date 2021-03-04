@@ -1,4 +1,4 @@
-Ebben a mappában lévő file-ok az <b>1D vágás</b> optimalizálás témakörével foglalkozom. A témáról bővebben <a href="https://www.bferi.hu/download.php#cutter">itt található</a> leírás.<br>
+Ebben a mappában lévő file-okban az <b>1D cutting</b> optimization, vagy másképpen <b>1D vágás</b> optimalizálás témakörével foglalkozom. A témáról bővebben <a href="https://www.bferi.hu/download.php#cutter">itt található</a> leírás.<br>
 A cutter.c és a cutter.cs file-okban lévő kódok az ismétléses permutáció algoritmusát használják a darabok megkeverésére. Itt látszik,
 hogy ez a módszer biztos megtalálja az optimális megoldások egyikét, de csak nagyon kevés darabra használható.<br>
 A cutterrnd.cs file-ban lévő kód a véletlen számokat használja. Kevés darabszám esetén ez is megtalálja az optimális megoldást, de közepes és nagy darabszámok esetén is talán elfogadható "megoldást" ad.
