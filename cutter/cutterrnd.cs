@@ -31,7 +31,7 @@ namespace Cutterrnd
             Cutting ct = new Cutting(str);
             Console.WriteLine(DateTime.Now);
             sw.Start();
-            ct.Manipulal(800000);
+            ct.Manipulal(800000); //kb. 33 sec.
             long elapsedMilliseconds = sw.ElapsedMilliseconds;
             t_1 = elapsedMilliseconds;
             Console.Write(ct.ToString());
