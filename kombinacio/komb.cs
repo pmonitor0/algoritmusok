@@ -8,8 +8,8 @@ namespace Kombinaciok
         public static void Main(string[] args)
         {
             Console.WriteLine(DateTime.Now.ToString());
-            int n = 6, k = 4;
-            //int n = 250, k = 5;
+            //int n = 6, k = 4;
+            int n = 250, k = 5;
             int[] arr = new int[n];
             for (int i = 0; i < n; ++i) arr[i] = i + 1;
             Stopwatch sw = new Stopwatch();
