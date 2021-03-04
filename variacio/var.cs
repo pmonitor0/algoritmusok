@@ -15,7 +15,7 @@ namespace Variaciok
             Stopwatch sw = new Stopwatch();
             long t_1 = 0;
             sw.Start();
-            Teszt(arr, k);
+            Teszt(arr, k); //kb. 25 sec.
             t_1 = sw.ElapsedMilliseconds;
             Console.WriteLine("Eltelt idő: {0}", t_1);
         }
