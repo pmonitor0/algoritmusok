@@ -15,9 +15,9 @@ namespace Kombinaciok
             Stopwatch sw = new Stopwatch();
             long t_1 = 0, t_2 = 0, t3 = 0;
             sw.Start();
-            Teszt_1(arr, k);
+            Teszt_1(arr, k); //kb. 11-12 sec.
             t_1 = sw.ElapsedMilliseconds;
-            Teszt_2(arr, k);
+            Teszt_2(arr, k); // kb. 20-22 sec.
             t_2 = sw.ElapsedMilliseconds;
             Console.WriteLine("Teszt_1: {0}", t_1);
             Console.WriteLine("Teszt_2: {0}", t_2 - t_1);
