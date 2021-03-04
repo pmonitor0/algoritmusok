@@ -46,7 +46,7 @@ void teszt()
     long seconds;
     int militm;
     ftime(&start);
-    perm(13);
+    perm(13); //kb. 12-13 sec.
     ftime(&end);
     seconds = timediff_0(&start, &end);
     militm = start.millitm;
