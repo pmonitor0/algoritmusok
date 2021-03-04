@@ -8,12 +8,12 @@ namespace Kombinaciok
         public static void Main(string[] args)
         {
             Console.WriteLine(DateTime.Now.ToString());
-            //int n = 6, k = 4;
-            int n = 250, k = 5;
+            int n = 6, k = 4;
+            //int n = 250, k = 5;
             int[] arr = new int[n];
             for (int i = 0; i < n; ++i) arr[i] = i + 1;
             Stopwatch sw = new Stopwatch();
-            long t_1 = 0, t_2 = 0;
+            long t_1 = 0, t_2 = 0, t3 = 0;
             sw.Start();
             Teszt_1(arr, k);
             t_1 = sw.ElapsedMilliseconds;
@@ -66,7 +66,7 @@ namespace Kombinaciok
             bool ind = true;
             while(Kombinacio(tomb, n, k, ref j, ref ind))
             {
-                /*for (int i = 0; i < k; ++i) Console.Write(arr[tomb[i]]);
+                /*for (int i = 0; i < k; ++i) Console.Write("{0} ", arr[tomb[i]]);
                 Console.WriteLine("");*/
             }
         }
