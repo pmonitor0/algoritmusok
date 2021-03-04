@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace Variaciok
 {
-    class Var
+    class VarIsm
     {
         public static void Main(string[] args)
         {
