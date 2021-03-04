@@ -25,10 +25,9 @@ namespace Permutaciok
             int[] arr2 = (int[])arr.Clone();
             int n = arr2.Length;
             int i, j, temp;
-            for (i = 0; i < n; ++i) arr2[i] = i + 1;
             while (true)
             {
-                /*for (i = 0; i < n; ++i) Console.Write("{0} ", arr[i]);
+                /*for (i = 0; i < n; ++i) Console.Write("{0} ", arr2[i]);
                 Console.WriteLine("");*/
 
                 for (i = n - 2; i >= 0 && arr2[i] > arr2[i + 1]; --i) ;
