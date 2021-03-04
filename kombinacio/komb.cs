@@ -13,7 +13,7 @@ namespace Kombinaciok
             int[] arr = new int[n];
             for (int i = 0; i < n; ++i) arr[i] = i + 1;
             Stopwatch sw = new Stopwatch();
-            long t_1 = 0, t_2 = 0, t3 = 0;
+            long t_1 = 0, t_2 = 0;
             sw.Start();
             Teszt_1(arr, k);
             t_1 = sw.ElapsedMilliseconds;
