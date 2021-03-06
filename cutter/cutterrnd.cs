@@ -56,30 +56,6 @@ namespace Cutterrnd
             rnd = new Random(10000);
         }
 
-        static int[] ReadFromString(string text, ref int szalhossz)
-        {
-            string[] strt2 = text.Split(Environment.NewLine.ToCharArray());
-            if (!int.TryParse(strt2[0], out szalhossz)) throw new ApplicationException("A szál hossza nem szám!!!");
-            int[] tomb = new int[50];
-            int aktindex = 0;
-            for (int i = 1; i < strt2.Length; ++i)
-            {
-                if (strt2[i] != "")
-                {
-                    string[] strt3 = strt2[i].Split(',');
-                    if (strt3.Length < 2) throw new ApplicationException("Méretet és darabszámot is meg kell adni \",\"(vessző)-vel elválasztva!!!");
-                    if (strt3.Length > 2) throw new ApplicationException("Csak egy méretet és darabszámot lehet egy sorban megadni!!!");
-                    int meret, darab;
-                    if (!int.TryParse(strt3[0], out meret)) throw new ApplicationException("Az egyik méret nem szám!!!");
-                    if (!int.TryParse(strt3[1], out darab)) throw new ApplicationException("Az egyik darabszám nem szám!!!");
-                    if (aktindex + darab > tomb.Length) Array.Resize(ref tomb, aktindex + darab + 50);
-                    for (int j = 0; j < darab; ++j) tomb[aktindex++] = meret;
-                }
-            }
-            Array.Resize(ref tomb, aktindex);
-            return tomb;
-        }
-
         public void Manipulal(long probakszama)
         {
             int darab = Eredmeny.Length;
@@ -497,23 +473,6 @@ namespace Cutterrnd
             hatarok[1 + szaldarab] = arr.Length;
         }
 
-        int[] ConvertTomb2dToTomb1d(int[,] tomb2d, int szalhossz)
-        {
-            int osszdarab = 0;
-            for (int i = 0; i < tomb2d.GetLength(0); ++i)
-            {
-                if (tomb2d[i, 1] < szalhossz) osszdarab += tomb2d[i, 0];
-                else break;
-            }
-            int[] tomb = new int[osszdarab];
-            int tombindex = 0;
-            for (int i = 0; i < osszdarab; ++i)
-            {
-                for (int j = 0; j < tomb2d[i, 0]; ++j, ++tombindex) tomb[tombindex] = tomb2d[i, 2 + j];
-            }
-            return tomb;
-        }
-
         int[,] ConvertTomb1dToTomb2d(int[] tomb, int szalhossz)
         {
             int[,] arr = new int[1 + tomb.Length, 2 + tomb.Length];
@@ -588,6 +547,30 @@ namespace Cutterrnd
             }
         }
 
+        static int[] ReadFromString(string text, ref int szalhossz)
+        {
+            string[] strt2 = text.Split(Environment.NewLine.ToCharArray());
+            if (!int.TryParse(strt2[0], out szalhossz)) throw new ApplicationException("A szál hossza nem szám!!!");
+            int[] tomb = new int[50];
+            int aktindex = 0;
+            for (int i = 1; i < strt2.Length; ++i)
+            {
+                if (strt2[i] != "")
+                {
+                    string[] strt3 = strt2[i].Split(',');
+                    if (strt3.Length < 2) throw new ApplicationException("Méretet és darabszámot is meg kell adni \",\"(vessző)-vel elválasztva!!!");
+                    if (strt3.Length > 2) throw new ApplicationException("Csak egy méretet és darabszámot lehet egy sorban megadni!!!");
+                    int meret, darab;
+                    if (!int.TryParse(strt3[0], out meret)) throw new ApplicationException("Az egyik méret nem szám!!!");
+                    if (!int.TryParse(strt3[1], out darab)) throw new ApplicationException("Az egyik darabszám nem szám!!!");
+                    if (aktindex + darab > tomb.Length) Array.Resize(ref tomb, aktindex + darab + 50);
+                    for (int j = 0; j < darab; ++j) tomb[aktindex++] = meret;
+                }
+            }
+            Array.Resize(ref tomb, aktindex);
+            return tomb;
+        }
+
         string Sorstringbe(int[,] arr, int index)
         {
             StringBuilder s = new StringBuilder();
@@ -599,6 +582,7 @@ namespace Cutterrnd
 
         public override string ToString()
         {
+            if (Osszeg == 0) return "";
             KettodArr = ConvertTomb1dToTomb2d(Eredmeny, Szalhossz);
             RendezHulladekCsokkeno2D(KettodArr, 1 + Szaldarab);
             SzalRendez2D(KettodArr, 1 + Szaldarab);
