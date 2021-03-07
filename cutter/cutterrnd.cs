@@ -360,11 +360,13 @@ namespace Cutterrnd
             {
                 for (int k = 0; k < 3; ++k)
                 {
+                    int pr0 = 0;
                     gen0 = rnd.Next(darab);
                     do
                     {
+                        ++pr0;
                         gen1 = rnd.Next(darab);
-                    } while ((gen0 == gen1) || (arr0[gen0] == arr0[gen1]));
+                    } while (((gen0 == gen1) || (arr0[gen0] == arr0[gen1])) && pr0 < 4);
                     temp = arr0[gen0];
                     arr0[gen0] = arr0[gen1];
                     arr0[gen1] = temp;
