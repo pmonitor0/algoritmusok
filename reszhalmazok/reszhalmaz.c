@@ -36,7 +36,6 @@ void teszt_2(int arr[], int n)
 void teszt_1(int arr[], int n)
 {
     int tomb[50];
-    int darab = 0;
     for (int i = 0; i < n; ++i) tomb[i] = 0;
     do
     {
