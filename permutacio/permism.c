@@ -28,6 +28,7 @@ void QuickSort(char* arr2, int p, int r)
     if (Low < r) QuickSort(arr2, Low, r);
 }
 
+long long db = 0;
 
 void teszt(char str[])
 {
@@ -56,7 +57,6 @@ void teszt(char str[])
             temp = str2[j]; str2[j] = str2[n + i - j]; str2[n + i - j] = temp;
         }
     }
-    printf("%ld\r\n", db);
     free(str2);
 }
 
