@@ -21,6 +21,7 @@ namespace Kombinaciok
             t_2 = sw.ElapsedMilliseconds;
             Console.WriteLine("Teszt_1: {0}", t_1);
             Console.WriteLine("Teszt_2: {0}", t_2 - t_1);
+            Console.ReadKey();
         }
 
         static void Teszt_1(int[] arr, int k)
@@ -28,24 +29,24 @@ namespace Kombinaciok
             int n = arr.Length;
             int[] tomb = new int[k];
             for (int i = 0; i < k; ++i) tomb[i] = i;
-            int j = k - 1;
+            int j = k - 1, m = n - k;
             do
             {
                 /*for (int i = 0; i < k; ++i) Console.Write("{0} ", arr[tomb[i]]);
                 Console.WriteLine("");*/
 
                 ++tomb[j];
-                if (tomb[j] > n - 1)
+                if (tomb[j] >= n)
                 {
-                    while (j > -1)
+                    while (true)
                     {
-                        if (tomb[j] >= n - k + j)
+                        if (tomb[j] >= m + j)
                         {
-                            --j;
-                            if (j == -1) return;
+                            if (--j == -1) break;
                         }
                         else break;
                     }
+                    if (j < 0) break;
                     ++tomb[j];
                     ++j;
                     while (j < k)
