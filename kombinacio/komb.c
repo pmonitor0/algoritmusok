@@ -9,7 +9,7 @@ void kombinacio(int arr[], int n, int k)
 {
     int* tomb = (int*)malloc(k * sizeof(int));
     for (int i = 0; i < k; ++i) tomb[i] = i;
-    int j = k - 1;
+    int j = k - 1, m = n - k;
     do
     {
         ++db;
@@ -17,17 +17,17 @@ void kombinacio(int arr[], int n, int k)
         printf("\n");*/
 
         ++tomb[j];
-        if (tomb[j] > n - 1)
+        if (tomb[j] >= n)
         {
-            while (j > -1)
+            while (1)
             {
-                if (tomb[j] >= n - k + j)
+                if (tomb[j] >= m + j)
                 {
-                    --j;
-                    if (j == -1) return;
+                    if (--j == -1) break;
                 }
                 else break;
             }
+            if (j < 0) break;
             ++tomb[j];
             ++j;
             while (j < k)
@@ -60,7 +60,9 @@ int main()
     long seconds, seconds2;
     int militm, militm2;
     int arr[500];
-    int i, n = 250, k = 5;
+    int i;
+    int n = 250, k = 5;
+    //int n = 6, k = 4;
     for (i = 0; i < n; i++) arr[i] = i + 1;
     ftime(&start);
     kombinacio(arr, n, k); //kb. 12-13 sec.
