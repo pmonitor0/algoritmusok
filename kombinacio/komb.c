@@ -65,7 +65,7 @@ int main()
     //int n = 6, k = 4;
     for (i = 0; i < n; i++) arr[i] = i + 1;
     ftime(&start);
-    kombinacio(arr, n, k); //kb. 12-13 sec.
+    kombinacio(arr, n, k); //kb. 11-12 sec.
     ftime(&end);
     seconds = timediff(&start, &end);
     militm = start.millitm;
