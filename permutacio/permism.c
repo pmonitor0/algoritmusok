@@ -40,21 +40,21 @@ void teszt(char str[])
     }
     strcpy(str2, str);
     QuickSort(str2, 0, n - 1);
-    int i, j;
+    int i, j, k = n - 1;
     char temp;
-    long db = 0;
+    long long db = 0;
     for (;;)
     {
-        ++db;
-        //printf("%s\n", str);
+        //++db;
+        //printf("%s\n", str2);
 
         for (i = n - 2; i >= 0 && str2[i] >= str2[i + 1]; i--);
         if (i < 0) break;
         for (j = n - 1; str2[j] <= str2[i]; j--);
         temp = str2[i]; str2[i] = str2[j]; str2[j] = temp;
-        for (j = i + 1; j < n + i - j; j++)
+        for (i++, j = k; i < j; i++, j--)
         {
-            temp = str2[j]; str2[j] = str2[n + i - j]; str2[n + i - j] = temp;
+            temp = str2[i]; str2[i] = str2[j]; str2[j] = temp;
         }
     }
     free(str2);
@@ -80,7 +80,7 @@ int main()
     char str[] = "abcdanananaabcdanana";
     //char str[] = "ACBC";
     ftime(&start);
-    teszt(str); //kb. 22-23 sec.
+    teszt(str); //kb. 19-20 sec.
     ftime(&end);
     seconds = timediff(&start, &end);
     militm = start.millitm;
