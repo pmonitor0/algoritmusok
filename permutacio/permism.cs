@@ -12,7 +12,7 @@ namespace Permutaciok
             Stopwatch sw = new Stopwatch();
             long t_1 = 0;
             sw.Start();
-            Teszt(charr); //kb. 31-32 sec.
+            Teszt(charr); //kb. 29-30 sec.
             t_1 = sw.ElapsedMilliseconds;
             Console.WriteLine("Teszt: {0}", t_1);
         }
@@ -23,7 +23,7 @@ namespace Permutaciok
             int size = arr.Length;
             Array.Sort(arr2);
             int n = arr2.Length;
-            int i, j;
+            int i, j, k = n - 1;
             char temp;
             while (true)
             {
@@ -34,9 +34,9 @@ namespace Permutaciok
                 if (i < 0) break;
                 for (j = n - 1; arr2[j] <= arr2[i]; --j) ;
                 temp = arr2[i]; arr2[i] = arr2[j]; arr2[j] = temp;
-                for (j = i + 1; j < n + i - j; ++j)
+                for (++i, j = k; i < j; ++i, --j)
                 {
-                    temp = arr2[j]; arr2[j] = arr2[n + i - j]; arr2[n + i - j] = temp;
+                    temp = arr2[i]; arr2[i] = arr2[j]; arr2[j] = temp;
                 }
             }
         }
