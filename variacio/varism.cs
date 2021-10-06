@@ -16,7 +16,7 @@ namespace Variaciok
             long t_1 = 0, t_2 = 0, t_3 = 0;
             GC.Collect();
             sw.Start();
-            IsmVariacio(arr, k); //kb. 35 sec.
+            IsmVariacio(arr, k); //kb. 37 sec.
             t_1 = sw.ElapsedMilliseconds;
             GC.Collect();
             t_2 = sw.ElapsedMilliseconds;
@@ -24,6 +24,7 @@ namespace Variaciok
             t_3 = sw.ElapsedMilliseconds;
             Console.WriteLine("Eltelt idő: {0}", t_1);
             Console.WriteLine("Eltelt idő: {0}", t_3 - t_2);
+            Console.ReadKey();
         }
 
         static void IsmVariacio(int[] arr, int k)
@@ -46,10 +47,11 @@ namespace Variaciok
                         if (tomb[j] >= n - 1)
                         {
                             --j;
-                            if (j == -1) return;
+                            if (j == -1) break;
                         }
                         else break;
                     }
+                    if (j < 0) break;
                     ++tomb[j];
                     ++j;
                     while (j < k)
@@ -75,7 +77,7 @@ namespace Variaciok
                 if (tomb[i] == n)
                 {
                     i--;
-                    if (i == 0) return;
+                    if (i == 0) break;
                 }
                 else
                 {
