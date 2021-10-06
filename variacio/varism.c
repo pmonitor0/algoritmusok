@@ -24,10 +24,11 @@ void IsmVariacio(int arr[], int n, int k)
                 if (tomb[j] >= n - 1)
                 {
                     --j;
-                    if (j == -1) return;
+                    if (j == -1) break;
                 }
                 else break;
             }
+            if (j < 0) break;
             ++tomb[j];
             ++j;
             while (j < k)
@@ -86,16 +87,18 @@ int main()
     long seconds, seconds2;
     int militm, militm2;
     int arr[500];
-    int i, n = 120, k = 5;
+    int i;
+    int n = 120, k = 5;
+    //int n = 5, k = 3;
     for (i = 0; i < n; i++) arr[i] = i + 1;
     ftime(&start);
-    IsmVariacio(arr, n, k); //kb 36 sec.
+    IsmVariacio(arr, n, k); //kb 38 sec.
     ftime(&end);
     seconds = timediff(&start, &end);
     militm = start.millitm;
     db = 0;
     ftime(&start);
-    IsmVar(arr, n, k); //kb. 30 sec.
+    IsmVar(arr, n, k); //kb. 33 sec.
     ftime(&end);
     seconds2 = timediff(&start, &end);
     militm2 = start.millitm;
