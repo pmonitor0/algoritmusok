@@ -18,6 +18,7 @@ namespace Variaciok
             Teszt(arr, k); //kb. 25 sec.
             t_1 = sw.ElapsedMilliseconds;
             Console.WriteLine("Eltelt idő: {0}", t_1);
+            Console.ReadKey();
         }
 
         static void Teszt(int[] arr, int k)
@@ -30,7 +31,7 @@ namespace Variaciok
         {
             int[] tomb = new int[k];
             int n = arr.Length;
-            int m = 0, j = 0, i = 0;
+            int m = 0, j = 0, i = 0, p = k - 1;
             while (i >= 0 && i < k)
             {
                 j = tomb[i] + 1;
@@ -43,7 +44,7 @@ namespace Variaciok
                 }
                 if (j <= n)
                 {
-                    if (i == k - 1)
+                    if (i == p)
                     {
                         tomb[i] = j;
 
@@ -52,17 +53,9 @@ namespace Variaciok
                         Console.WriteLine("");*/
 
                     }
-                    else
-                    {
-                        tomb[i] = j;
-                        ++i;
-                    }
+                    else tomb[i++] = j;
                 }
-                else
-                {
-                    tomb[i] = 0;
-                    --i;
-                }
+                else tomb[i--] = 0;
             }
         }
     }
