@@ -9,6 +9,7 @@ namespace Kombinaciok
         {
             Console.WriteLine(DateTime.Now.ToString());
             int n = 250, k = 5;
+            //int n = 4, k = 3;
             int[] arr = new int[n];
             for (int i = 0; i < n; ++i) arr[i] = i + 1;
             Stopwatch sw = new Stopwatch();
@@ -17,6 +18,7 @@ namespace Kombinaciok
             IsmKombinacio(arr, k); //kb. 12 sec.
             t_1 = sw.ElapsedMilliseconds;
             Console.WriteLine("Eltelt idő: {0}", t_1);
+            Console.ReadKey();
         }
 
         static void IsmKombinacio(int[] arr, int k)
@@ -24,7 +26,7 @@ namespace Kombinaciok
             int n = arr.Length;
             int[] tomb = new int[k];
             for (int i = 0; i < k; ++i) tomb[i] = 0;
-            int j = k - 1;
+            int j = k - 1, m = n - 1;
             do
             {
 
@@ -32,18 +34,18 @@ namespace Kombinaciok
                 Console.WriteLine("");*/
 
                 ++tomb[j];
-                if (tomb[j] > n - 1)
+                if (tomb[j] >= n)
                 {
                     --j;
-                    while (j > -1)
+                    while (true)
                     {
-                        if (tomb[j] == n - 1)
+                        if (tomb[j] == m)
                         {
-                            --j;
-                            if (j == -1) return;
+                            if (--j == -1) break;
                         }
                         else break;
                     }
+                    if (j < 0) break;
                     ++tomb[j];
                     ++j;
                     while (j < k)
