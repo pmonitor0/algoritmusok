@@ -9,7 +9,7 @@ void ismkomb(int arr[], int n, int k)
 {
     int* tomb = (int*)malloc(k * sizeof(int));
     for (int i = 0; i < k; ++i) tomb[i] = 0;
-    int j = k - 1;
+    int j = k - 1, m = n - 1;
     do
     {
         ++db;
@@ -17,18 +17,18 @@ void ismkomb(int arr[], int n, int k)
         printf("\n");*/
 
         ++tomb[j];
-        if (tomb[j] > n - 1)
+        if (tomb[j] >= n)
         {
             --j;
             while (j > -1)
             {
-                if (tomb[j] == n - 1)
+                if (tomb[j] == m)
                 {
-                    --j;
-                    if (j == -1) return;
+                    if (--j == -1) break;
                 }
                 else break;
             }
+            if (j < 0) break;
             ++tomb[j];
             ++j;
             while (j < k)
@@ -61,10 +61,12 @@ int main()
     long seconds;
     int militm;
     int arr[500];
-    int i, n = 250, k = 5;
+    int i;
+    //int n = 4, k = 3;
+    int n = 250, k = 5;
     for (i = 0; i < n; i++) arr[i] = i + 1;
     ftime(&start);
-    ismkomb(arr, n, k); //kb. 17-18 sec;
+    ismkomb(arr, n, k); //kb. 16-17 sec;
     ftime(&end);
     seconds = timediff(&start, &end);
     militm = start.millitm;
